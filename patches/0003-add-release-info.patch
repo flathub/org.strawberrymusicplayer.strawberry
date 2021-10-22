@@ -1,0 +1,24 @@
+From f7607e73837ccd04407ae1c318e4f9f8b1e6cddc Mon Sep 17 00:00:00 2001
+From: Luna <advaith.madhukar@gmail.com>
+Date: Fri, 22 Oct 2021 20:23:26 +0530
+Subject: [PATCH 3/3] add release info
+
+---
+ dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml b/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
+index 47194b87..ee2bf589 100644
+--- a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
++++ b/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
+@@ -49,4 +49,7 @@
+     </screenshot>
+   </screenshots>
+   <update_contact>eclipseo@fedoraproject.org</update_contact>
++    <releases>
++        <release version="1.0.0" date="2021-10-16"/>
++    </releases>
+ </component>
+-- 
+2.32.0
+

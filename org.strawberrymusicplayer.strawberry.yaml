@@ -111,3 +111,8 @@ modules:
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name 
           url-query:  .assets[] | select(.name=="strawberry-"+ $version +".tar.xz") | .browser_download_url
+      - type: patch
+        paths: 
+          - patches/0001-add-type-to-appdata.xml.patch
+          - patches/0002-add-oars-content-rating.patch
+          - patches/0003-add-release-info.patch

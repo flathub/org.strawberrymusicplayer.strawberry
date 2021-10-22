@@ -1,0 +1,23 @@
+From 5211526075aac0b3cd884d17646da21c9815668f Mon Sep 17 00:00:00 2001
+From: Luna <advaith.madhukar@gmail.com>
+Date: Fri, 22 Oct 2021 19:50:19 +0530
+Subject: [PATCH 1/3] add type to appdata.xml
+
+---
+ dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml b/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
+index 2dcb3e40..d3265fea 100644
+--- a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
++++ b/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<component>
++<component type="desktop-application">
+   <id>org.strawberrymusicplayer.strawberry</id>
+   <launchable type="desktop-id">org.strawberrymusicplayer.strawberry.desktop</launchable>
+   <metadata_license>CC0-1.0</metadata_license>
+-- 
+2.32.0
+
