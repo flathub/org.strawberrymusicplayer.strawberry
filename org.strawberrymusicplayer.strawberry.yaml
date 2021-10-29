@@ -64,8 +64,8 @@ modules:
       - /bin/protoc
     sources:
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v3.19.0/protobuf-cpp-3.19.0.tar.gz
-        sha256: 24ce6d7c1899cf4dbc360354bd5420dab9927a2a30e533af5357c719b0f50672
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v3.19.1/protobuf-cpp-3.19.1.tar.gz
+        sha256: 645192532f28254152b51c01868efdf9b766b1dbe49c77cccd6efcdb2d7c7bc2
         x-checker-data:
           type: json
           url: https://api.github.com/repos/protocolbuffers/protobuf/releases/latest
@@ -114,7 +114,7 @@ modules:
           url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
             | .browser_download_url
       - type: patch
-        paths: 
+        paths:
           - patches/0001-add-type-to-appdata.xml.patch
           - patches/0002-add-oars-content-rating.patch
           - patches/0003-add-release-info.patch
