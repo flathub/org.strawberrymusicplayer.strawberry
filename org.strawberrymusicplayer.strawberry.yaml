@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: '6.2'
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: strawberry
@@ -50,7 +50,7 @@ modules:
           project-id: 6845
           url-template: https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${version0}_${version1}_$version2.tar.gz
   - name: chromaprint
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: archive
         url: https://github.com/acoustid/chromaprint/releases/download/v1.5.0/chromaprint-1.5.0.tar.gz
@@ -73,7 +73,7 @@ modules:
           url-query: .assets[] | select(.name=="protobuf-cpp-"+ $version +".tar.gz")
             | .browser_download_url
   - name: taglib
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     cleanup:
       - /bin/
     sources:
@@ -102,7 +102,7 @@ modules:
     cleanup:
       - /bin
   - name: strawberry
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: archive
         url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.0/strawberry-1.0.0.tar.xz
