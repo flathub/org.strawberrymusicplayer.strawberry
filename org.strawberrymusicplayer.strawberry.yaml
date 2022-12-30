@@ -99,8 +99,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.10/strawberry-1.0.10.tar.xz
-        sha256: 47e6d707f5b24e960dfdac1752455fcd5733fbb194d43fd946d4d021d64867af
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.11/strawberry-1.0.11.tar.xz
+        sha256: 27446e65f6f5bb30f426db95e5cc446f080e5cca2e6dc32f513118ad6e8cf0e1
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
