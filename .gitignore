@@ -1,4 +1,5 @@
 build-dir
-.flatpak-builder
+.flatpak*
+.vscode
 boost*
 strawberry
