@@ -37,7 +37,7 @@ modules:
   - name: boost
     buildsystem: simple
     build-commands:
-      - ./bootstrap.sh --prefix="${FLATPAK_DEST}"
+      - ./bootstrap.sh  --prefix="${FLATPAK_DEST}"
       - ./b2 -j ${FLATPAK_BUILDER_N_JOBS}
       - ./b2 -j ${FLATPAK_BUILDER_N_JOBS} headers
       - ./b2 install
