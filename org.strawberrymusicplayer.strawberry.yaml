@@ -101,13 +101,14 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.14/strawberry-1.0.14.tar.xz
-        sha256: cbb0e0557e97c6e29ca3bf093f2359c959c8b5e8d26c1b6734bb17a85abcd37f
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.15/strawberry-1.0.15.tar.xz
+        sha256: 5470e72335dc9d3f6f4943387158cec067821a934e5d322de7d3ad4e8c50a9ef
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz") | .browser_download_url
+          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
+            | .browser_download_url
       - type: script
         dest-filename: start-strawberry.sh
         commands:
