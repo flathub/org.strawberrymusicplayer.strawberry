@@ -137,6 +137,7 @@ modules:
           versions:
             '>=': '3'
             '<': '4'
+          url-template: https://download.videolan.org/videolan/vlc/$version/vlc-$version.tar.xz
   - name: strawberry
     buildsystem: cmake-ninja
     config-opts:
