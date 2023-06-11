@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: '6.5'
+runtime-version: "6.5"
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
@@ -38,9 +38,9 @@ modules:
     buildsystem: simple
     build-commands:
       - ./bootstrap.sh  --prefix="${FLATPAK_DEST}"
-      - ./b2 -j ${FLATPAK_BUILDER_N_JOBS}
-      - ./b2 -j ${FLATPAK_BUILDER_N_JOBS} headers
-      - ./b2 install
+      - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS}
+      - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS} headers
+      - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
         url: https://boostorg.jfrog.io/artifactory/main/release/1.82.0/source/boost_1_82_0.tar.gz
@@ -95,6 +95,18 @@ modules:
           url-template: https://ftp.gnu.org/gnu/libcdio/libcdio-$version.tar.bz2
     cleanup:
       - /bin
+  - name: libmtp
+    config-opts:
+      - --disable-static
+      - --with-udev=/app/lib/udev
+    sources:
+      - type: archive
+        url: https://github.com/libmtp/libmtp/releases/download/v1.1.21/libmtp-1.1.21.tar.gz
+        sha256: f4c1ceb3df020a6cb851110f620c14fe399518c494ed252039cbfb4e34335135
+        x-checker-data:
+          type: anitya
+          project-id: 10017
+          url-template: https://github.com/libmtp/libmtp/releases/download/v$version/libmtp-$version.tar.gz
   - name: strawberry
     buildsystem: cmake-ninja
     post-install:
@@ -107,8 +119,7 @@ modules:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
-            | .browser_download_url
+          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz") | .browser_download_url
       - type: patch
         path: update-appdata.patch
       - type: script
