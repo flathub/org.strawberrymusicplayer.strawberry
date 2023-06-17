@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: '6.4'
+runtime-version: "6.5"
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
@@ -38,9 +38,9 @@ modules:
     buildsystem: simple
     build-commands:
       - ./bootstrap.sh  --prefix="${FLATPAK_DEST}"
-      - ./b2 -j ${FLATPAK_BUILDER_N_JOBS}
-      - ./b2 -j ${FLATPAK_BUILDER_N_JOBS} headers
-      - ./b2 install
+      - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS}
+      - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS} headers
+      - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
         url: https://boostorg.jfrog.io/artifactory/main/release/1.82.0/source/boost_1_82_0.tar.gz
@@ -50,6 +50,8 @@ modules:
           project-id: 6845
           url-template: https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${version0}_${version1}_$version2.tar.gz
   - name: chromaprint
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     buildsystem: cmake-ninja
     sources:
       - type: archive
@@ -68,8 +70,14 @@ modules:
         sha256: f6251f2d00aad41b34c1dfa3d752713cb1bb1b7020108168a4deaa206ba8ed42
   - name: taglib
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DBUILD_SHARED_LIBS=ON
+      - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+      - -DWITH_MP4=ON
+      - -DWITH_ASF=ON
     cleanup:
-      - /bin/
+      - /bin
     sources:
       - type: archive
         url: https://github.com/taglib/taglib/releases/download/v1.12/taglib-1.12.tar.gz
@@ -95,8 +103,45 @@ modules:
           url-template: https://ftp.gnu.org/gnu/libcdio/libcdio-$version.tar.bz2
     cleanup:
       - /bin
+  - shared-modules/libusb/libusb.json
+  - name: libmtp
+    cleanup:
+      - /bin
+    config-opts:
+      - --disable-static
+      - --with-udev=/app/lib/udev
+    sources:
+      - type: archive
+        url: https://github.com/libmtp/libmtp/releases/download/v1.1.21/libmtp-1.1.21.tar.gz
+        sha256: f4c1ceb3df020a6cb851110f620c14fe399518c494ed252039cbfb4e34335135
+        x-checker-data:
+          type: anitya
+          project-id: 10017
+          url-template: https://github.com/libmtp/libmtp/releases/download/v$version/libmtp-$version.tar.gz
+  - name: vlc
+    cleanup:
+      - /bin
+    config-opts:
+      - BUILDCC=/usr/bin/gcc -std=gnu99
+      - --disable-a52
+      - --disable-qt
+      - --disable-lua
+      - --prefix=/app
+    sources:
+      - type: archive
+        url: https://download.videolan.org/videolan/vlc/3.0.18/vlc-3.0.18.tar.xz
+        sha256: 57094439c365d8aa8b9b41fa3080cc0eef2befe6025bb5cef722accc625aedec
+        x-checker-data:
+          type: anitya
+          project-id: 6504
+          versions:
+            '>=': '3'
+            '<': '4'
+          url-template: https://download.videolan.org/videolan/vlc/$version/vlc-$version.tar.xz
   - name: strawberry
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     post-install:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
@@ -107,8 +152,7 @@ modules:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
-            | .browser_download_url
+          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz") | .browser_download_url
       - type: patch
         path: update-appdata.patch
       - type: script
