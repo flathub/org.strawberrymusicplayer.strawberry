@@ -107,6 +107,7 @@ modules:
   - name: libmtp
     cleanup:
       - /bin
+      - /share
     config-opts:
       - --disable-static
       - --with-udev=/app/lib/udev
@@ -120,12 +121,16 @@ modules:
           url-template: https://github.com/libmtp/libmtp/releases/download/v$version/libmtp-$version.tar.gz
   - name: vlc
     cleanup:
+      - /share
       - /bin
     config-opts:
       - BUILDCC=/usr/bin/gcc -std=gnu99
+      - --disable-debug
+      - --disable-ncurses
       - --disable-a52
       - --disable-qt
       - --disable-lua
+      - --disable-vlc
       - --prefix=/app
     sources:
       - type: archive
