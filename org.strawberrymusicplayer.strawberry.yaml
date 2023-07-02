@@ -158,8 +158,6 @@ modules:
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name
           url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz") | .browser_download_url
-      - type: patch
-        path: update-appdata.patch
       - type: script
         dest-filename: start-strawberry.sh
         commands:
