@@ -146,7 +146,7 @@ modules:
   - name: strawberry
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
     post-install:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
