@@ -32,6 +32,8 @@ finish-args:
   - --talk-name=org.mpris.MediaPlayer2.Player
   - --own-name=org.mpris.MediaPlayer2.strawberry
   - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.kde.kglobalaccel
+
 modules:
   - name: boost
     buildsystem: simple
