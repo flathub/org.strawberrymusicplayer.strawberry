@@ -135,8 +135,8 @@ modules:
       - --prefix=/app
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.18/vlc-3.0.18.tar.xz
-        sha256: 57094439c365d8aa8b9b41fa3080cc0eef2befe6025bb5cef722accc625aedec
+        url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
+        sha256: adc7285b4d2721cddf40eb5270cada2aaa10a334cb546fd55a06353447ba29b5
         x-checker-data:
           type: anitya
           project-id: 6504
