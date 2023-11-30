@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: '6.6'
+runtime-version: "6.6"
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
@@ -52,7 +52,7 @@ modules:
           url-template: https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${version0}_${version1}_$version2.tar.gz
   - name: chromaprint
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
     buildsystem: cmake-ninja
     sources:
       - type: archive
@@ -72,7 +72,7 @@ modules:
   - name: taglib
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_SHARED_LIBS=ON
       - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
       - -DWITH_MP4=ON
@@ -83,6 +83,18 @@ modules:
       - type: archive
         url: https://github.com/taglib/taglib/releases/download/v1.12/taglib-1.12.tar.gz
         sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+  - name: libebur128
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: git
+        url: https://github.com/jiixyj/libebur128.git
+        tag: v1.2.6
+        commit: 67b33abe1558160ed76ada1322329b0e9e058b02
+        x-checker-data:
+          type: git
+          "tag-pattern": "v([\\d]\\.[\\d]\\.[\\d])"
   - name: libcdio
     config-opts:
       - --without-cd-drive
@@ -141,8 +153,8 @@ modules:
           type: anitya
           project-id: 6504
           versions:
-            '>=': '3'
-            <: '4'
+            ">=": "3"
+            <: "4"
           url-template: https://download.videolan.org/videolan/vlc/$version/vlc-$version.tar.xz
   - name: strawberry
     buildsystem: cmake-ninja
@@ -158,7 +170,8 @@ modules:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
+          url-query:
+            .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
             | .browser_download_url
       - type: script
         dest-filename: start-strawberry.sh
