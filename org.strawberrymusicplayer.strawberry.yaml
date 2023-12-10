@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: "6.6"
+runtime-version: '6.6'
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
@@ -94,7 +94,7 @@ modules:
         commit: 67b33abe1558160ed76ada1322329b0e9e058b02
         x-checker-data:
           type: git
-          "tag-pattern": "v([\\d]\\.[\\d]\\.[\\d])"
+          tag-pattern: v([\d]\.[\d]\.[\d])
   - name: libcdio
     config-opts:
       - --without-cd-drive
@@ -153,8 +153,8 @@ modules:
           type: anitya
           project-id: 6504
           versions:
-            ">=": "3"
-            <: "4"
+            '>=': '3'
+            <: '4'
           url-template: https://download.videolan.org/videolan/vlc/$version/vlc-$version.tar.xz
   - name: strawberry
     buildsystem: cmake-ninja
@@ -164,14 +164,13 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.21/strawberry-1.0.21.tar.xz
-        sha256: d0cc7c3390ad3a4ebb0195171df45583d8e447530bb8536f33a87de5fca27163
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.22/strawberry-1.0.22.tar.xz
+        sha256: 7c4181b0e0f100e1e2567bdf1e79c4685efafead02d68c950c6c0298a0546119
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
           version-query: .tag_name
-          url-query:
-            .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
+          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
             | .browser_download_url
       - type: script
         dest-filename: start-strawberry.sh
