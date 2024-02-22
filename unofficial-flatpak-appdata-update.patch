@@ -5,7 +5,7 @@ diff --git a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml b/dist/u
    <content_rating type="oars-1.1" />
    <description>
      <p>
-+      NOTE: This Flatpak is unofficial and maintained by external volunteers, none of whom are Strawberry's core maintainer. If you have any issues with this Flatpak that cannot be reproduced with the .deb, .rpm and other native builds, please open an issue in this Flatpak's repository instead of Strawberry's own repository using the following link: https://github.com/flathub/org.strawberrymusicplayer.strawberry/issues/new
++      <em>>NOTE:</em> This Flatpak is unofficial and maintained by external volunteers, NOT any of Strawberry's core development team. If you have any issues with this Flatpak that cannot be reproduced with the .deb, .rpm and other native builds, please open an issue in this Flatpak's repository instead of Strawberry's own repository: https://github.com/flathub/org.strawberrymusicplayer.strawberry/issues/new
 +    </p>
 +    <p>
        Strawberry is a music player and music collection organizer. It is aimed at music collectors and audiophiles. With Strawberry you can play and manage your digital music collection, or stream your favorite radios. It also has unofficial streaming support for Tidal and Qobuz. Strawberry is free software released under GPL. The source code is available on GitHub. It's written in C++ using the Qt toolkit and GStreamer. Strawberry is compatible with both Qt version 5 and 6.
