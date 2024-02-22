@@ -1,7 +1,14 @@
 diff --git a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml b/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml
 --- a/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml	2024-01-11 16:43:30.000000000 +0000
 +++ b/dist/unix/org.strawberrymusicplayer.strawberry.appdata.xml	2024-02-05 19:12:23.165505000 +0000
-@@ -16,6 +16,9 @@
+@@ -10,12 +10,16 @@
+   </provides>
+   <name>Strawberry Music Player</name>
+   <summary>A music player and collection organizer</summary>
++  <developer_name> Jonas Kvinge and contributors</developer_name>
+   <url type="homepage">https://www.strawberrymusicplayer.org/</url>
+   <url type="bugtracker">https://github.com/strawberrymusicplayer/strawberry/</url>
+   ​<translation type="qt">strawberry</translation>
    <content_rating type="oars-1.1" />
    <description>
      <p>
