@@ -67,8 +67,8 @@ modules:
       - /bin/protoc
     sources:
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v21.8/protobuf-cpp-3.21.8.tar.gz
-        sha256: f6251f2d00aad41b34c1dfa3d752713cb1bb1b7020108168a4deaa206ba8ed42
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v26.1/protobuf-26.1.tar.gz
+        sha256: 4fc5ff1b2c339fb86cd3a25f0b5311478ab081e65ad258c6789359cd84d421f8
   - name: taglib
     buildsystem: cmake-ninja
     config-opts:
@@ -81,8 +81,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/taglib/taglib/releases/download/v1.12/taglib-1.12.tar.gz
-        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+        url: https://github.com/taglib/taglib/releases/download/v2.0.1/taglib-2.0.1.tar.gz
+        sha256: 08c0a27b96aa5c4e23060fe0b6f93102ee9091a9385257b9d0ddcf467de0d925
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
