@@ -45,7 +45,7 @@ modules:
     sources:
       - type: archive
         url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
-        sha256: be0d91732d5b0cc6fbb275c7939974457e79b54d6f07ce2e3dfdd68bef883b0b        
+        sha256: be0d91732d5b0cc6fbb275c7939974457e79b54d6f07ce2e3dfdd68bef883b0b
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -62,6 +62,22 @@ modules:
           type: anitya
           project-id: 286
           url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
+  - name: abseil-cpp
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DABSL_PROPAGATE_CXX_STD=ON
+      - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+    sources:
+      - type: archive
+        url: https://github.com/abseil/abseil-cpp/archive/refs/tags/20240116.2.tar.gz
+        sha256: 733726b8c3a6d39a4120d7e45ea8b41a434cdacde401cba500f14236c49b39dc
+        x-checker-data:
+          type: anitya
+          project-id: 115295
+          stable-only: true
+          url-template: https://github.com/abseil/abseil-cpp/archive/refs/tags/$version.tar.gz
   - name: protobuf
     buildsystem: cmake-ninja
     config-opts:
@@ -87,6 +103,11 @@ modules:
       - type: archive
         url: https://github.com/taglib/taglib/releases/download/v2.0.1/taglib-2.0.1.tar.gz
         sha256: 08c0a27b96aa5c4e23060fe0b6f93102ee9091a9385257b9d0ddcf467de0d925
+        x-checker-data:
+          type: anitya
+          project-id: 3715
+          stable-only: true
+          url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protobuf-$version.tar.gz
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
