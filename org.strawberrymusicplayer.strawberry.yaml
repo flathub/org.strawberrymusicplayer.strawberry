@@ -66,6 +66,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -Dprotobuf_BUILD_TESTS=OFF
+      - -Dprotobuf_ABSL_PROVIDER=package
     cleanup:
       - /bin/protoc
     sources:
