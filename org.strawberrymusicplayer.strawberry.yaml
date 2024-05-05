@@ -64,6 +64,8 @@ modules:
           url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
   - name: protobuf
     buildsystem: cmake-ninja
+    config-opts:
+      - -Dprotobuf_BUILD_TESTS=OFF
     cleanup:
       - /bin/protoc
     sources:
