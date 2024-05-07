@@ -94,6 +94,23 @@ modules:
           project-id: 3715
           stable-only: true
           url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protobuf-$version.tar.gz
+  - name: poco
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DPOCO_UNBUNDLED=ON
+    sources:
+      - type: archive
+        url: https://github.com/pocoproject/poco/archive/poco-1.13.3-release.tar.gz
+        sha256: 9f074d230daf30f550c5bde5528037bdab6aa83b2a06c81a25e89dd3bcb7e419
+        x-checker-data:
+          type: anitya
+          project-id: 5418
+          stable-only: true
+          url-template: https://github.com/pocoproject/poco/archive/poco-$version-release.tar.gz
+    cleanup:
+      - /include/
+      - /bin/
+      - /lib/cmake/          
   - name: taglib
     buildsystem: cmake-ninja
     config-opts:
