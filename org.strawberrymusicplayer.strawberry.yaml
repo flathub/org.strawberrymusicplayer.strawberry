@@ -41,7 +41,7 @@ modules:
       - ./bootstrap.sh  --prefix="${FLATPAK_DEST}"
       - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS}
       - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS} headers
-      - ./b2 --without-mpi --without-graph_parallel
+      - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
         url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
