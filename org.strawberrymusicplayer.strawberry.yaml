@@ -179,7 +179,7 @@ modules:
       - --disable-qt
       - --disable-lua
       - --disable-vlc
-      #- --prefix=/app
+      - --prefix=/app
     sources:
       - type: archive
         url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
