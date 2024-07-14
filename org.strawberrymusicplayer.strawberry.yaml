@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: '6.6'
+runtime-version: '6.7'
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
@@ -44,8 +44,8 @@ modules:
       - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.gz
-        sha256: a5800f405508f5df8114558ca9855d2640a2de8f0445f051fa1c7c3383045724
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
+        sha256: be0d91732d5b0cc6fbb275c7939974457e79b54d6f07ce2e3dfdd68bef883b0b
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -62,13 +62,48 @@ modules:
           type: anitya
           project-id: 286
           url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
+  - name: abseil-cpp
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DABSL_PROPAGATE_CXX_STD=ON
+      - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+    sources:
+      - type: archive
+        url: https://github.com/abseil/abseil-cpp/archive/refs/tags/20240116.2.tar.gz
+        sha256: 733726b8c3a6d39a4120d7e45ea8b41a434cdacde401cba500f14236c49b39dc
+        x-checker-data:
+          type: anitya
+          project-id: 115295
+          stable-only: true
+          url-template: https://github.com/abseil/abseil-cpp/archive/refs/tags/$version.tar.gz
   - name: protobuf
+    buildsystem: cmake-ninja
+    config-opts:
+      - -Dprotobuf_BUILD_TESTS=OFF
+      - -Dprotobuf_ABSL_PROVIDER=package
     cleanup:
       - /bin/protoc
     sources:
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v21.8/protobuf-cpp-3.21.8.tar.gz
-        sha256: f6251f2d00aad41b34c1dfa3d752713cb1bb1b7020108168a4deaa206ba8ed42
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v27.2/protobuf-27.2.tar.gz
+        sha256: e4ff2aeb767da6f4f52485c2e72468960ddfe5262483879ef6ad552e52757a77
+        x-checker-data:
+          type: anitya
+          project-id: 3715
+          stable-only: true
+          url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protobuf-$version.tar.gz
+  - name: utfcpp
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.0.5.tar.gz
+        sha256: ffc668a310e77607d393f3c18b32715f223da1eac4c4d6e0579a11df8e6b59cf
+        x-checker-data:
+          type: anitya
+          project-id: 20545
+          url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
   - name: taglib
     buildsystem: cmake-ninja
     config-opts:
@@ -81,8 +116,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/taglib/taglib/releases/download/v1.12/taglib-1.12.tar.gz
-        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+        url: https://github.com/taglib/taglib/releases/download/v2.0.1/taglib-2.0.1.tar.gz
+        sha256: 08c0a27b96aa5c4e23060fe0b6f93102ee9091a9385257b9d0ddcf467de0d925
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
@@ -147,8 +182,8 @@ modules:
       - --prefix=/app
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
-        sha256: adc7285b4d2721cddf40eb5270cada2aaa10a334cb546fd55a06353447ba29b5
+        url: https://download.videolan.org/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz
+        sha256: 24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0
         x-checker-data:
           type: anitya
           project-id: 6504
