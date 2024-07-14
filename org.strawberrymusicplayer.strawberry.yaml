@@ -87,8 +87,8 @@ modules:
       - /bin/protoc
     sources:
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v26.1/protobuf-26.1.tar.gz
-        sha256: 4fc5ff1b2c339fb86cd3a25f0b5311478ab081e65ad258c6789359cd84d421f8
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v27.2/protobuf-27.2.tar.gz
+        sha256: e4ff2aeb767da6f4f52485c2e72468960ddfe5262483879ef6ad552e52757a77
         x-checker-data:
           type: anitya
           project-id: 3715
@@ -182,8 +182,8 @@ modules:
       - --prefix=/app
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
-        sha256: adc7285b4d2721cddf40eb5270cada2aaa10a334cb546fd55a06353447ba29b5
+        url: https://download.videolan.org/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz
+        sha256: 24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0
         x-checker-data:
           type: anitya
           project-id: 6504
