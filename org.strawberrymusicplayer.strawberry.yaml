@@ -44,8 +44,8 @@ modules:
       - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.gz
-        sha256: a5800f405508f5df8114558ca9855d2640a2de8f0445f051fa1c7c3383045724
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
+        sha256: be0d91732d5b0cc6fbb275c7939974457e79b54d6f07ce2e3dfdd68bef883b0b
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -62,6 +62,7 @@ modules:
           type: anitya
           project-id: 286
           url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
+  # TODO update
   - name: protobuf
     cleanup:
       - /bin/protoc
@@ -81,8 +82,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/taglib/taglib/releases/download/v1.12/taglib-1.12.tar.gz
-        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+        url: https://github.com/taglib/taglib/releases/download/v1.13.1/taglib-1.13.1.tar.gz
+        sha256: c8da2b10f1bfec2cd7dbfcd33f4a2338db0765d851a50583d410bacf055cfd0b
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
@@ -147,8 +148,8 @@ modules:
       - --prefix=/app
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
-        sha256: adc7285b4d2721cddf40eb5270cada2aaa10a334cb546fd55a06353447ba29b5
+        url: https://download.videolan.org/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz
+        sha256: 24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0
         x-checker-data:
           type: anitya
           project-id: 6504
