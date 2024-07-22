@@ -44,8 +44,8 @@ modules:
       - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.gz
-        sha256: a5800f405508f5df8114558ca9855d2640a2de8f0445f051fa1c7c3383045724
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
+        sha256: be0d91732d5b0cc6fbb275c7939974457e79b54d6f07ce2e3dfdd68bef883b0b
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -147,8 +147,8 @@ modules:
       - --prefix=/app
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
-        sha256: adc7285b4d2721cddf40eb5270cada2aaa10a334cb546fd55a06353447ba29b5
+        url: https://download.videolan.org/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz
+        sha256: 24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0
         x-checker-data:
           type: anitya
           project-id: 6504
@@ -164,8 +164,8 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.23/strawberry-1.0.23.tar.xz
-        sha256: 24f63064caf62c72330e9fa0808a1ca938339831d0a4e8385986280601a54f10
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.1.1/strawberry-1.1.1.tar.xz
+        sha256: ec0deff3c332aaa79dc9fb6dddd694480695cc6c97e7a7aba48e45cdde11f302
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
