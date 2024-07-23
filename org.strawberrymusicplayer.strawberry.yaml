@@ -164,8 +164,8 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.23/strawberry-1.0.23.tar.xz
-        sha256: 24f63064caf62c72330e9fa0808a1ca938339831d0a4e8385986280601a54f10
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.1.1/strawberry-1.1.1.tar.xz
+        sha256: ec0deff3c332aaa79dc9fb6dddd694480695cc6c97e7a7aba48e45cdde11f302
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
