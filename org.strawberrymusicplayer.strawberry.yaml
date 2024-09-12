@@ -44,8 +44,8 @@ modules:
       - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.gz
-        sha256: a5800f405508f5df8114558ca9855d2640a2de8f0445f051fa1c7c3383045724
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.86.0/source/boost_1_86_0.tar.gz
+        sha256: 2575e74ffc3ef1cd0babac2c1ee8bdb5782a0ee672b1912da40e5b4b591ca01f
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -147,8 +147,8 @@ modules:
       - --prefix=/app
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.20/vlc-3.0.20.tar.xz
-        sha256: adc7285b4d2721cddf40eb5270cada2aaa10a334cb546fd55a06353447ba29b5
+        url: https://download.videolan.org/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz
+        sha256: 24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0
         x-checker-data:
           type: anitya
           project-id: 6504
