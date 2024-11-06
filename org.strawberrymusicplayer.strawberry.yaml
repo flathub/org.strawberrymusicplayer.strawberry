@@ -69,6 +69,16 @@ modules:
           type: anitya
           project-id: 286
           url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
+  - name: utfcpp
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.0.6.tar.gz
+        sha256: 6920a6a5d6a04b9a89b2a89af7132f8acefd46e0c2a7b190350539e9213816c0
+        x-checker-data:
+          type: anitya
+          project-id: 20545
+          url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
   - name: taglib
     buildsystem: cmake-ninja
     config-opts:
@@ -83,6 +93,10 @@ modules:
       - type: archive
         url: https://github.com/taglib/taglib/releases/download/v2.0.2/taglib-2.0.2.tar.gz
         sha256: 0de288d7fe34ba133199fd8512f19cc1100196826eafcb67a33b224ec3a59737
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          url-template: https://github.com/taglib/taglib/releases/download/v$version/taglib-$version.tar.gz
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
