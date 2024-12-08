@@ -126,8 +126,8 @@ modules:
       - --with-udev=/app/lib/udev
     sources:
       - type: archive
-        url: https://github.com/libmtp/libmtp/releases/download/v1.1.21/libmtp-1.1.21.tar.gz
-        sha256: f4c1ceb3df020a6cb851110f620c14fe399518c494ed252039cbfb4e34335135
+        url: https://github.com/libmtp/libmtp/releases/download/v1.1.22/libmtp-1.1.22.tar.gz
+        sha256: c3fcf411aea9cb9643590cbc9df99fa5fe30adcac695024442973d76fa5f87bc
         x-checker-data:
           type: anitya
           project-id: 10017
@@ -164,8 +164,8 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.1.3/strawberry-1.1.3.tar.xz
-        sha256: cc133169f03f7b966074023eef105028e334d3dad8a066adbe8e6bdc7c1ab8dd
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.3/strawberry-1.2.3.tar.xz
+        sha256: 187b05a0907948dbeef2cdb3fb263f2a95476949a18c2aab98a1df0f454756fc
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
