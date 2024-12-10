@@ -1,9 +1,16 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: '6.6'
+runtime-version: '6.8'
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: '24.08'
+    directory: lib/ffmpeg
+    add-ld-path: .
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 cleanup:
   - /include
   - /lib/cmake
@@ -62,27 +69,6 @@ modules:
           type: anitya
           project-id: 286
           url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
-  - name: protobuf
-    cleanup:
-      - /bin/protoc
-    sources:
-      - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v21.8/protobuf-cpp-3.21.8.tar.gz
-        sha256: f6251f2d00aad41b34c1dfa3d752713cb1bb1b7020108168a4deaa206ba8ed42
-  - name: taglib
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_SHARED_LIBS=ON
-      - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-      - -DWITH_MP4=ON
-      - -DWITH_ASF=ON
-    cleanup:
-      - /bin
-    sources:
-      - type: archive
-        url: https://github.com/taglib/taglib/releases/download/v1.12/taglib-1.12.tar.gz
-        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
@@ -126,36 +112,12 @@ modules:
       - --with-udev=/app/lib/udev
     sources:
       - type: archive
-        url: https://github.com/libmtp/libmtp/releases/download/v1.1.21/libmtp-1.1.21.tar.gz
-        sha256: f4c1ceb3df020a6cb851110f620c14fe399518c494ed252039cbfb4e34335135
+        url: https://github.com/libmtp/libmtp/releases/download/v1.1.22/libmtp-1.1.22.tar.gz
+        sha256: c3fcf411aea9cb9643590cbc9df99fa5fe30adcac695024442973d76fa5f87bc
         x-checker-data:
           type: anitya
           project-id: 10017
           url-template: https://github.com/libmtp/libmtp/releases/download/v$version/libmtp-$version.tar.gz
-  - name: vlc
-    cleanup:
-      - /share
-      - /bin
-    config-opts:
-      - BUILDCC=/usr/bin/gcc -std=gnu99
-      - --disable-debug
-      - --disable-ncurses
-      - --disable-a52
-      - --disable-qt
-      - --disable-lua
-      - --disable-vlc
-      - --prefix=/app
-    sources:
-      - type: archive
-        url: https://download.videolan.org/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz
-        sha256: 24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0
-        x-checker-data:
-          type: anitya
-          project-id: 6504
-          versions:
-            '>=': '3'
-            <: '4'
-          url-template: https://download.videolan.org/videolan/vlc/$version/vlc-$version.tar.xz
   - name: strawberry
     buildsystem: cmake-ninja
     config-opts:
@@ -164,8 +126,8 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.1.3/strawberry-1.1.3.tar.xz
-        sha256: cc133169f03f7b966074023eef105028e334d3dad8a066adbe8e6bdc7c1ab8dd
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.3/strawberry-1.2.3.tar.xz
+        sha256: 187b05a0907948dbeef2cdb3fb263f2a95476949a18c2aab98a1df0f454756fc
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
