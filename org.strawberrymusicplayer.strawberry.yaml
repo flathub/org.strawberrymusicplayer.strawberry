@@ -42,6 +42,19 @@ finish-args:
   - --talk-name=org.kde.kglobalaccel
 
 modules:
+  - name: gst-plugins-rs
+    buildsystem: simple
+    sources:
+    - type: git
+      url: 'https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/'
+      commit: 497b1e58bde517f468899b873f2763d5fb05e5c3 # v0.13.2 is broken
+    - full-gst-plugins-rs-sources.json
+    build-options:
+      append-path: /usr/lib/sdk/rust-stable/bin
+      env:
+        CARGO_HOME: /run/build/gst-plugins-rs/cargo
+    build-commands:
+      - cargo cinstall -p gst-plugin-spotify --offline --release --library-type=cdylib --prefix=/app --libdir=/app/lib
   - name: boost
     buildsystem: simple
     build-commands:
