@@ -45,16 +45,17 @@ modules:
   - name: gst-plugins-rs
     buildsystem: simple
     sources:
-    - type: git
-      url: 'https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/'
-      commit: 497b1e58bde517f468899b873f2763d5fb05e5c3 # v0.13.2 is broken
-    - full-gst-plugins-rs-sources.json
+      - type: git
+        url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/
+        commit: 497b1e58bde517f468899b873f2763d5fb05e5c3 # v0.13.2 is broken
+      - full-gst-plugins-rs-sources.json
     build-options:
       append-path: /usr/lib/sdk/rust-stable/bin
       env:
         CARGO_HOME: /run/build/gst-plugins-rs/cargo
     build-commands:
-      - cargo cinstall -p gst-plugin-spotify --offline --release --library-type=cdylib --prefix=/app --libdir=/app/lib
+      - cargo cinstall -p gst-plugin-spotify --offline --release --library-type=cdylib
+        --prefix=/app --libdir=/app/lib
   - name: boost
     buildsystem: simple
     build-commands:
@@ -64,8 +65,8 @@ modules:
       - ./b2 --without-mpi --without-graph_parallel install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.86.0/source/boost_1_86_0.tar.gz
-        sha256: 2575e74ffc3ef1cd0babac2c1ee8bdb5782a0ee672b1912da40e5b4b591ca01f
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.tar.gz
+        sha256: f55c340aa49763b1925ccf02b2e83f35fdcf634c9d5164a2acb87540173c741d
         x-checker-data:
           type: anitya
           project-id: 6845
