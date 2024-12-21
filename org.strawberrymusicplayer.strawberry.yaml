@@ -34,7 +34,6 @@ finish-args:
   - --system-talk-name=org.freedesktop.Avahi
   - --talk-name=org.freedesktop.Notifications
   - --system-talk-name=org.freedesktop.UDisks2
-  - --talk-name=org.gnome.SettingsDaemon.MediaKeys
   - --talk-name=org.wiimotedev.deviceEvents
   - --talk-name=org.mpris.MediaPlayer2.Player
   - --own-name=org.mpris.MediaPlayer2.strawberry
@@ -148,6 +147,8 @@ modules:
           version-query: .tag_name
           url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
             | .browser_download_url
+      - type: patch
+        path: unofficial-flatpak-appdata-update.patch
       - type: script
         dest-filename: start-strawberry.sh
         commands:
