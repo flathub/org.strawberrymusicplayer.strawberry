@@ -59,18 +59,16 @@ modules:
   - name: boost
     buildsystem: simple
     build-commands:
-      - ./bootstrap.sh  --prefix="${FLATPAK_DEST}"
-      - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS}
-      - ./b2 --without-mpi --without-graph_parallel -j ${FLATPAK_BUILDER_N_JOBS} headers
-      - ./b2 --without-mpi --without-graph_parallel install
+      - ./bootstrap.sh --prefix=/app --with-libraries=function_types,headers,multi_index
+      - ./b2 -j $FLATPAK_BUILDER_N_JOBS install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.tar.gz
+        url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.gz
         sha256: f55c340aa49763b1925ccf02b2e83f35fdcf634c9d5164a2acb87540173c741d
         x-checker-data:
           type: anitya
           project-id: 6845
-          url-template: https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${version0}_${version1}_$version2.tar.gz
+          url-template: https://archives.boost.io/release/$version/source/boost_${version0}_${version1}_${version2}.tar.gz
   - name: chromaprint
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
