@@ -136,12 +136,13 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DENABLE_GPOD=OFF
     post-install:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.4/strawberry-1.2.4.tar.xz
-        sha256: de4868914c66b3b79e57216252ac44eb63cacf0ead1d0462b76725b956574827
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.5/strawberry-1.2.5.tar.xz
+        sha256: 2bcf009bbb954ed34564b8466d713987d313a6e59cabf74564e813b003d4d873
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
