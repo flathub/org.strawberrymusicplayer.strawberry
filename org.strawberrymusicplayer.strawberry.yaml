@@ -105,8 +105,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/archive/refs/tags/2.1.1.tar.gz
-        sha256: b35c2cab99aa64bf1fb5eaf96796a8fa2f8c80253d51acf8a7c0883e9c42f396
+        url: https://github.com/libcdio/libcdio/archive/refs/tags/2.2.0.tar.gz
+        sha256: df007a9b9667797e027e573822cc865e5e106352f8a6fbca67ee8e9e7a1e5b51
         x-checker-data:
           type: anitya
           project-id: 1573
