@@ -47,7 +47,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/
-        commit: 497b1e58bde517f468899b873f2763d5fb05e5c3 # v0.13.2 is broken
+        commit: c6ce0bca571c61d2b4a933f24d7cd074baca2ade # v0.13.2 is broken
       - full-gst-plugins-rs-sources.json
     build-options:
       append-path: /usr/lib/sdk/rust-stable/bin
