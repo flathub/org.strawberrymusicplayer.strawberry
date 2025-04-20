@@ -9,6 +9,8 @@ add-extensions:
     version: '24.08'
     directory: lib/ffmpeg
     add-ld-path: .
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 cleanup:
