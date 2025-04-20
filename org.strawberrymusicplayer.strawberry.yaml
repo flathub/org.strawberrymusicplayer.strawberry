@@ -1,6 +1,6 @@
 app-id: org.strawberrymusicplayer.strawberry
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 rename-icon: strawberry
 command: start-strawberry
@@ -9,6 +9,8 @@ add-extensions:
     version: '24.08'
     directory: lib/ffmpeg
     add-ld-path: .
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 cleanup:
@@ -34,7 +36,6 @@ finish-args:
   - --system-talk-name=org.freedesktop.Avahi
   - --talk-name=org.freedesktop.Notifications
   - --system-talk-name=org.freedesktop.UDisks2
-  - --talk-name=org.gnome.SettingsDaemon.MediaKeys
   - --talk-name=org.wiimotedev.deviceEvents
   - --talk-name=org.mpris.MediaPlayer2.Player
   - --own-name=org.mpris.MediaPlayer2.strawberry
@@ -47,7 +48,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/
-        commit: 497b1e58bde517f468899b873f2763d5fb05e5c3 # v0.13.2 is broken
+        commit: c6ce0bca571c61d2b4a933f24d7cd074baca2ade # v0.13.2 is broken
       - full-gst-plugins-rs-sources.json
     build-options:
       append-path: /usr/lib/sdk/rust-stable/bin
@@ -63,8 +64,8 @@ modules:
       - ./b2 -j $FLATPAK_BUILDER_N_JOBS install
     sources:
       - type: archive
-        url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.gz
-        sha256: f55c340aa49763b1925ccf02b2e83f35fdcf634c9d5164a2acb87540173c741d
+        url: https://archives.boost.io/release/1.88.0/source/boost_1_88_0.tar.gz
+        sha256: 3621533e820dcab1e8012afd583c0c73cf0f77694952b81352bf38c1488f9cb4
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -179,8 +180,8 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.9/strawberry-1.2.9.tar.xz
-        sha256: 7099a35973d2551489ebbf6f33487169134e57fb292a4aeed07e68aa8d939e76
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.10/strawberry-1.2.10.tar.xz
+        sha256: fa545aad28ff7bb2733cfeecbe41e4f0be15f36fac430251acb9c1465426aa2e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
