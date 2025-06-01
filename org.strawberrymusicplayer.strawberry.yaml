@@ -136,13 +136,12 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DKDSingleApplication_QT6=ON
       - -DKDSingleApplication_EXAMPLES=OFF
     sources:
       - type: git
         url: https://github.com/KDAB/KDSingleApplication
-        tag: v1.1.0
-        commit: cb0c664b40d3b31bad30aa3521eff603162ed0bd
+        tag: v1.2.0
+        commit: 3186a158f8e6565e89f5983b4028c892737844ff
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
