@@ -43,12 +43,16 @@ finish-args:
   - --talk-name=org.kde.kglobalaccel
 
 modules:
-  - name: gst-plugins-rs
+  - name: gst-plugins-rs # Spotify plugin
     buildsystem: simple
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/
-        commit: c6ce0bca571c61d2b4a933f24d7cd074baca2ade # v0.13.2 is broken
+        tag: 0.14.0
+        commit: 8511071f6518e6df5dcadf8b113a43addd7ea1fe
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
       - full-gst-plugins-rs-sources.json
     build-options:
       append-path: /usr/lib/sdk/rust-stable/bin
