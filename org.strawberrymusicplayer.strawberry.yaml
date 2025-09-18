@@ -48,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/
-        tag: 0.14.1
-        commit: 126f022fe119dd79ad70290b08d303fddc441a16
+        tag: 0.14.2
+        commit: 5ae76f542721fd4cf8bf68a02c40a94cb640bb51
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
