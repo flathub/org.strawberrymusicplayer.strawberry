@@ -48,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git/
-        tag: 0.14.1
-        commit: 126f022fe119dd79ad70290b08d303fddc441a16
+        tag: 0.14.2
+        commit: 5ae76f542721fd4cf8bf68a02c40a94cb640bb51
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -183,8 +183,8 @@ modules:
       - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.13/strawberry-1.2.13.tar.xz
-        sha256: 8b7eea3f22b354b529f62e27072030a85ef13a4b3fcac77c0f04e452be6f41ae
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.14/strawberry-1.2.14.tar.xz
+        sha256: 65afadc72d8d80a59946e8c37fe4a4d3d2cfe18c290a699e616b916f439e24d7
         x-checker-data:
           type: json
           url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
