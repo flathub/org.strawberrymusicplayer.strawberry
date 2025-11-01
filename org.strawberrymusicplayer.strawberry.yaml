@@ -93,7 +93,6 @@ modules:
           url-template: https://github.com/libcdio/libcdio/archive/refs/tags/$version.tar.gz
     cleanup:
       - /bin
-  - shared-modules/libusb/libusb.json
   - name: libmtp
     cleanup:
       - /bin
