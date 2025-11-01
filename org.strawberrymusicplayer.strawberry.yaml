@@ -63,6 +63,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: git
         url: https://github.com/jiixyj/libebur128.git
