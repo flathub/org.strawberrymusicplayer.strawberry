@@ -65,13 +65,13 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
-      - type: git
-        url: https://github.com/jiixyj/libebur128.git
-        tag: v1.2.6
-        commit: 67b33abe1558160ed76ada1322329b0e9e058b02
+      - type: archive
+        url: https://github.com/jiixyj/libebur128/archive/refs/tags/v1.2.6.tar.gz
+        sha256: baa7fc293a3d4651e244d8022ad03ab797ca3c2ad8442c43199afe8059faa613
         x-checker-data:
-          type: git
-          tag-pattern: v([\d]\.[\d]\.[\d])
+          type: anitya
+          project-id: 7316
+          url-template: https://github.com/jiixyj/libebur128/archive/refs/tags/v$version.tar.gz
   - name: libcdio
     config-opts:
       - --without-cd-drive
@@ -84,13 +84,13 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/archive/refs/tags/2.2.0.tar.gz
-        sha256: df007a9b9667797e027e573822cc865e5e106352f8a6fbca67ee8e9e7a1e5b51
+        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz
+        sha256: 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
         x-checker-data:
           type: anitya
           project-id: 1573
           stable-only: true
-          url-template: https://github.com/libcdio/libcdio/archive/refs/tags/$version.tar.gz
+          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
     cleanup:
       - /bin
   - name: libmtp
@@ -115,13 +115,13 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DKDSingleApplication_EXAMPLES=OFF
     sources:
-      - type: git
-        url: https://github.com/KDAB/KDSingleApplication
-        tag: v1.2.0
-        commit: 3186a158f8e6565e89f5983b4028c892737844ff
+      - type: archive
+        url: https://github.com/KDAB/KDSingleApplication/releases/download/v1.2.0/kdsingleapplication-1.2.0.tar.gz
+        sha256: ff4ae6a4620beed1cdb3e6a9b78a17d7d1dae7139c3d4746d4856b7547d42c38
         x-checker-data:
-          type: git
-          tag-pattern: v([\d.]+)
+          type: anitya
+          project-id: 370439
+          url-template: https://github.com/KDAB/KDSingleApplication/releases/download/v$version/kdsingleapplication-$version.tar.gz
   - name: sparsehash
     sources:
       - type: archive
