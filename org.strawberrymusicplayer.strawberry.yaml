@@ -3,7 +3,7 @@ runtime: org.kde.Platform
 runtime-version: '6.10'
 sdk: org.kde.Sdk
 rename-icon: strawberry
-command: start-strawberry
+command: strawberry
 cleanup:
   - /include
   - /lib/cmake
@@ -152,8 +152,6 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DENABLE_GPOD=OFF
-    post-install:
-      - install -Dm755 start-strawberry.sh /app/bin/start-strawberry
     sources:
       - type: archive
         url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.14/strawberry-1.2.14.tar.xz
@@ -164,8 +162,3 @@ modules:
           version-query: .tag_name
           url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
             | .browser_download_url
-      - type: script
-        dest-filename: start-strawberry.sh
-        commands:
-          - export TMPDIR=$XDG_RUNTIME_DIR/app/$FLATPAK_ID
-          - /app/bin/strawberry "$@"
