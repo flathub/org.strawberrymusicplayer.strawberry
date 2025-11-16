@@ -157,8 +157,6 @@ modules:
         url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.14/strawberry-1.2.14.tar.xz
         sha256: 65afadc72d8d80a59946e8c37fe4a4d3d2cfe18c290a699e616b916f439e24d7
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/strawberrymusicplayer/strawberry/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name=="strawberry-"+ $version +".tar.xz")
-            | .browser_download_url
+          type: anitya
+          project-id: 19048
+          url-template: https://github.com/strawberrymusicplayer/strawberry/releases/download/$version/strawberry-$version.tar.xz
