@@ -89,7 +89,6 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1573
-          stable-only: true
           url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
     cleanup:
       - /bin
@@ -130,7 +129,6 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 4863
-          stable-only: true
           url-template: https://github.com/sparsehash/sparsehash/archive/sparsehash-$version.tar.gz
   - name: rapidjson
     buildsystem: cmake-ninja
