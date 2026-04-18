@@ -130,21 +130,6 @@ modules:
           type: anitya
           project-id: 4863
           url-template: https://github.com/sparsehash/sparsehash/archive/sparsehash-$version.tar.gz
-  - name: rapidjson
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DRAPIDJSON_BUILD_DOC=OFF
-      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
-      - -DRAPIDJSON_BUILD_TESTS=OFF
-    cleanup:
-      - /include
-      - /lib/cmake
-      - /lib/pkgconfig
-      - /share/doc
-    sources:
-      - type: git
-        url: https://github.com/Tencent/rapidjson.git
-        commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f # follow git because last tag is from 2016 and fails building
   - name: strawberry
     buildsystem: cmake-ninja
     config-opts:
