@@ -3,7 +3,7 @@ runtime: org.kde.Platform
 runtime-version: '6.10'
 sdk: org.kde.Sdk
 rename-icon: strawberry
-command: strawberry
+command: strawberry-wrapper.sh
 cleanup:
   - /include
   - /lib/cmake
@@ -32,6 +32,7 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.strawberry
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.kde.kglobalaccel
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
 
 modules:
   - name: boost
@@ -135,6 +136,8 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DENABLE_GPOD=OFF
+    post-install:
+      - install -Dm 755 strawberry-wrapper.sh -t app/bin
     sources:
       - type: archive
         url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.20/strawberry-1.2.20.tar.xz
@@ -143,3 +146,5 @@ modules:
           type: anitya
           project-id: 19048
           url-template: https://github.com/strawberrymusicplayer/strawberry/releases/download/$version/strawberry-$version.tar.xz
+      - type: file
+        path: strawberry-wrapper.sh
