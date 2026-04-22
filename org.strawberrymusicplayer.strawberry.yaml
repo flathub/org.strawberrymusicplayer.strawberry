@@ -3,7 +3,7 @@ runtime: org.kde.Platform
 runtime-version: '6.10'
 sdk: org.kde.Sdk
 rename-icon: strawberry
-command: strawberry-wrapper.sh
+command: strawberry-wrapper
 cleanup:
   - /include
   - /lib/cmake
@@ -137,7 +137,9 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DENABLE_GPOD=OFF
     post-install:
-      - install -Dm 755 strawberry-wrapper.sh -t app/bin
+      - install -D -t ${FLATPAK_DEST}/bin/ strawberry-wrapper
+      - desktop-file-edit --set-key=Exec --set-value='/app/bin/strawberry-wrapper'
+        /app/share/applications/org.strawberrymusicplayer.strawberry.desktop
     sources:
       - type: archive
         url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.20/strawberry-1.2.20.tar.xz
@@ -147,4 +149,4 @@ modules:
           project-id: 19048
           url-template: https://github.com/strawberrymusicplayer/strawberry/releases/download/$version/strawberry-$version.tar.xz
       - type: file
-        path: strawberry-wrapper.sh
+        path: strawberry-wrapper
