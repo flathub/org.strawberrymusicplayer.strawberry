@@ -8,11 +8,12 @@ cleanup:
   - /include
   - /lib/cmake
   - /lib/pkgconfig
+  - /mkspecs
+  - /share/doc
   - /share/info
   - /share/man
-  - /share/tagparser
-  - /share/c++utilities
-  - /bin/mmc-tool
+  - '*.la'
+  - '*.a'
 finish-args:
   - --share=ipc
   - --socket=fallback-x11
@@ -82,6 +83,8 @@ modules:
       - --without-iso-read
       - --with-pic
       - --disable-static
+    cleanup:
+      - /bin
     sources:
       - type: archive
         url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.gz
@@ -90,15 +93,13 @@ modules:
           type: anitya
           project-id: 1573
           url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
-    cleanup:
-      - /bin
+
   - name: libmtp
-    cleanup:
-      - /bin
-      - /share
     config-opts:
       - --disable-static
       - --with-udev=/app/lib/udev
+    cleanup:
+      - /bin
     sources:
       - type: archive
         url: https://github.com/libmtp/libmtp/releases/download/v1.1.23/libmtp-1.1.23.tar.gz
