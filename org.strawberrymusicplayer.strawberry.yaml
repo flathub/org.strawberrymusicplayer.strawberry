@@ -137,8 +137,8 @@ modules:
       - -DENABLE_GPOD=OFF
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.20/strawberry-1.2.20.tar.xz
-        sha256: 295387668b01c52eb8a47f2f05bc32feb951caa83a8bf4a799158f454d6a3dcb
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.21/strawberry-1.2.21.tar.xz
+        sha256: 02c208df0b032c79787107167b693e401f6464cc0785913a53a25ea97c21eed2
         x-checker-data:
           type: anitya
           project-id: 19048
