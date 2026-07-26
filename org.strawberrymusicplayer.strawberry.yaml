@@ -142,8 +142,8 @@ modules:
         /app/share/applications/org.strawberrymusicplayer.strawberry.desktop
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.23/strawberry-1.2.23.tar.xz
-        sha256: 4fe6aef7b340b557929b7d8e680e3bd1d6e70bc828249542de8f6aeef2d393fd
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.25/strawberry-1.2.25.tar.xz
+        sha256: 2e083295717070da75f88af8a149262d933c9451cf94fcad644c42b368d47895
         x-checker-data:
           type: anitya
           project-id: 19048
