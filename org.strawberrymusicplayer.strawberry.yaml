@@ -12,6 +12,7 @@ cleanup:
   - /share/doc
   - /share/info
   - /share/man
+  - /share/boost_predef
   - '*.la'
   - '*.a'
 finish-args:
