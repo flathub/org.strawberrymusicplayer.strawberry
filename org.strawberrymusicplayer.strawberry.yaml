@@ -32,6 +32,7 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.strawberry
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.kde.kglobalaccel
+  - --talk-name=org.freedesktop.secrets
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
 
 modules:
@@ -131,6 +132,42 @@ modules:
           type: anitya
           project-id: 4863
           url-template: https://github.com/sparsehash/sparsehash/archive/sparsehash-$version.tar.gz
+  - name: uchardet
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - -DBUILD_BINARY=OFF
+      - -DBUILD_STATIC=OFF
+    cleanup:
+      - /share
+    sources:
+      - type: archive
+        url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz
+        sha256: e97a60cfc00a1c147a674b097bb1422abd9fa78a2d9ce3f3fdcc2e78a34ac5f0
+        x-checker-data:
+          type: anitya
+          project-id: 9265
+          url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
+  - name: libsecret
+    buildsystem: meson
+    config-opts:
+      - -Dmanpage=false
+      - -Dvapi=false
+      - -Dgtk_doc=false
+      - -Dintrospection=false
+      - -Dbash_completion=disabled
+    cleanup:
+      - /bin
+      - /share
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.8.2.tar.xz
+        sha256: 142948339c5b971d8f6a8c7099521f6fd319b6fe73d2694b4e6d3310ed28b6e6
+        x-checker-data:
+          type: gnome
+          name: libsecret
+          stable-only: true
   - name: strawberry
     buildsystem: cmake-ninja
     config-opts:
@@ -142,8 +179,8 @@ modules:
         /app/share/applications/org.strawberrymusicplayer.strawberry.desktop
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.30/strawberry-1.2.30.tar.xz
-        sha256: 30fea0fdfc2f9c5449ac30d78ac2f5429fb5e1d025a4d1d3473d10f2abe1ef2a
+        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.31/strawberry-1.2.31.tar.xz
+        sha256: cffc0cd453f3126a930b9e67f547e54d9fde0c8754fdead8185d2b2f5c68c037
         x-checker-data:
           type: anitya
           project-id: 19048
