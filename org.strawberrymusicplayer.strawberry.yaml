@@ -32,7 +32,6 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.strawberry
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.kde.kglobalaccel
-  - --talk-name=org.freedesktop.secrets
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
 
 modules:
