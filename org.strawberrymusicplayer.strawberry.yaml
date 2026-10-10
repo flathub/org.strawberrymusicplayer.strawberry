@@ -8,11 +8,13 @@ cleanup:
   - /include
   - /lib/cmake
   - /lib/pkgconfig
+  - /mkspecs
+  - /share/doc
   - /share/info
   - /share/man
-  - /share/tagparser
-  - /share/c++utilities
-  - /bin/mmc-tool
+  - /share/boost_predef
+  - '*.la'
+  - '*.a'
 finish-args:
   - --share=ipc
   - --socket=fallback-x11
@@ -49,8 +51,6 @@ modules:
           project-id: 6845
           url-template: https://archives.boost.io/release/$version/source/boost_${version0}_${version1}_${version2}.tar.gz
   - name: chromaprint
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
     buildsystem: cmake-ninja
     sources:
       - type: archive
@@ -63,7 +63,6 @@ modules:
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: archive
@@ -82,23 +81,20 @@ modules:
       - --without-iso-info
       - --without-iso-read
       - --with-pic
-      - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.gz
-        sha256: 37bcb13296febbcff9dc4485834bac09212cb463c31fcea52f70ee1dd3a5a5de
+        url: https://github.com/libcdio/libcdio-C/releases/download/2.4.0/libcdio-2.4.0.tar.gz
+        sha256: bf7cde63762bb12db7755c395c441e49406fde7e1d9f9a9be7e3b940b1f405d7
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
+          url-template: https://github.com/libcdio/libcdio-C/releases/download/$version/libcdio-$version.tar.gz
     cleanup:
       - /bin
   - name: libmtp
     cleanup:
       - /bin
-      - /share
     config-opts:
-      - --disable-static
       - --with-udev=/app/lib/udev
     sources:
       - type: archive
@@ -112,7 +108,6 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
       - -DKDSingleApplication_EXAMPLES=OFF
     sources:
       - type: archive
@@ -170,7 +165,6 @@ modules:
   - name: strawberry
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
       - -DENABLE_GPOD=OFF
     post-install:
       - install -D -t ${FLATPAK_DEST}/bin/ strawberry-wrapper
