@@ -47,19 +47,22 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 6845
-          url-template: https://archives.boost.io/release/$version/source/boost_${version0}_${version1}_${version2}.tar.gz
+          url-template: 
+            https://archives.boost.io/release/$version/source/boost_${version0}_${version1}_${version2}.tar.gz
   - name: chromaprint
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/acoustid/chromaprint/releases/download/v1.6.1/chromaprint-1.6.1.tar.gz
-        sha256: 3368805af0ee47b9df74df10b5001a44569e01df2844dab520031720dde9ad23
+        url: 
+          https://github.com/acoustid/chromaprint/releases/download/v1.6.2/chromaprint-1.6.2.tar.gz
+        sha256: d54ada62c16b2db396d3251ec54fc7a58909c163131a1cfcf7fa6407dbc14360
         x-checker-data:
           type: anitya
           project-id: 286
-          url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
+          url-template: 
+            https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
   - name: libebur128
     buildsystem: cmake-ninja
     config-opts:
@@ -90,7 +93,8 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
+          url-template: 
+            https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
     cleanup:
       - /bin
   - name: libmtp
@@ -107,7 +111,8 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 10017
-          url-template: https://github.com/libmtp/libmtp/releases/download/v$version/libmtp-$version.tar.gz
+          url-template: 
+            https://github.com/libmtp/libmtp/releases/download/v$version/libmtp-$version.tar.gz
   - name: KDSingleApplication
     buildsystem: cmake-ninja
     builddir: true
@@ -116,12 +121,14 @@ modules:
       - -DKDSingleApplication_EXAMPLES=OFF
     sources:
       - type: archive
-        url: https://github.com/KDAB/KDSingleApplication/releases/download/v1.2.1/kdsingleapplication-1.2.1.tar.gz
+        url: 
+          https://github.com/KDAB/KDSingleApplication/releases/download/v1.2.1/kdsingleapplication-1.2.1.tar.gz
         sha256: e3254ce9dc5ecf6d61ef83264bc61d486a307f0e3c9ed1bb2176f068cdbcbe09
         x-checker-data:
           type: anitya
           project-id: 370439
-          url-template: https://github.com/KDAB/KDSingleApplication/releases/download/v$version/kdsingleapplication-$version.tar.gz
+          url-template: 
+            https://github.com/KDAB/KDSingleApplication/releases/download/v$version/kdsingleapplication-$version.tar.gz
   - name: sparsehash
     sources:
       - type: archive
@@ -178,11 +185,13 @@ modules:
         /app/share/applications/org.strawberrymusicplayer.strawberry.desktop
     sources:
       - type: archive
-        url: https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.31/strawberry-1.2.31.tar.xz
+        url: 
+          https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.31/strawberry-1.2.31.tar.xz
         sha256: cffc0cd453f3126a930b9e67f547e54d9fde0c8754fdead8185d2b2f5c68c037
         x-checker-data:
           type: anitya
           project-id: 19048
-          url-template: https://github.com/strawberrymusicplayer/strawberry/releases/download/$version/strawberry-$version.tar.xz
+          url-template: 
+            https://github.com/strawberrymusicplayer/strawberry/releases/download/$version/strawberry-$version.tar.xz
       - type: file
         path: strawberry-wrapper
