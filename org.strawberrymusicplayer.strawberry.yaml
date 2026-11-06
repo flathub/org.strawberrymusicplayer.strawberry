@@ -54,8 +54,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/acoustid/chromaprint/releases/download/v1.6.1/chromaprint-1.6.1.tar.gz
-        sha256: 3368805af0ee47b9df74df10b5001a44569e01df2844dab520031720dde9ad23
+        url: https://github.com/acoustid/chromaprint/releases/download/v1.6.2/chromaprint-1.6.2.tar.gz
+        sha256: d54ada62c16b2db396d3251ec54fc7a58909c163131a1cfcf7fa6407dbc14360
         x-checker-data:
           type: anitya
           project-id: 286
@@ -85,8 +85,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.gz
-        sha256: 37bcb13296febbcff9dc4485834bac09212cb463c31fcea52f70ee1dd3a5a5de
+        url: https://github.com/libcdio/libcdio/releases/download/2.4.0/libcdio-2.4.0.tar.gz
+        sha256: bf7cde63762bb12db7755c395c441e49406fde7e1d9f9a9be7e3b940b1f405d7
         x-checker-data:
           type: anitya
           project-id: 1573
